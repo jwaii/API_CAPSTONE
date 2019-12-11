@@ -1,0 +1,8 @@
+.box{
+    background-color: burlywood;
+    width: 75%;
+}
+
+.box-drag-drop{
+    background-color: aqua;
+}
