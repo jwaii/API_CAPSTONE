@@ -32,7 +32,7 @@ function watchForm(){
 console.log('hello world')
     $('form').submit(event =>{
     event.preventDefault()
-    const query = $('#js-input-section').val();
+    const query = $('#dropdown-list').val();
     console.log(query);
     console.log('watch form working')
 });
