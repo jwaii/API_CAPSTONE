@@ -1,32 +1,34 @@
 'use strict'
 
-const Authorization ="563492ad6f91700001000001c12e6064d8854ed3b2a57603660f2ac1"
-const searchURL ="https://www.pexels.com/v1"
-// promise would wait for first api to get results, then will allow second to build out
-
+const key ="14618198-0e48f42b11f7addd7d074a05d" // change
+const searchURL ="https://pixabay.com/api/" 
 console.log('api keys working');
-
-/*
-function formatQueryParams(params){
-    console.log('format Q params ran')
-    const queryItems = Object.keys(params)
-    .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
-        console.log(queryItems) //call for the keys
-        return queryItems.join('&');
-}
-*/
-
+//https://pixabay.com/images/search/food/
+function fetchApi(query){ //change api auth points (fill in the URL points)
+    
+    let url = `${searchURL}?${key}&"p="+encodeURIComponent('chinese food')`;
+    //`${searchURL}+${key}&category=food&q=restaurant&q` ;
+    console.log(url);
+    //fetch, pass through URL for param for API
+    fetch(url, {mode: 'no-cors'})
+        .then(respose => response.json())
+        .then (responseJson => 
+            displayResults(responseJson))
+        .catch(error => alert(`Something went wrong. Please try again`))
+        }
+      
+  
 function displayResults(responseJson){
     console.log('display Results is running');
     console.log(responseJson);
-    
+    const query = responseJson.data //??
+    for  (let i =0; i < query.length; i++){
+        console.log(query[i]);
+        console.log('for loop')
+    }
+
 };
 
-/* const parkList = responseJson.data
-    for (let i=0; i< parkList.length; i++){
-        console.log(parkList[i])
-        $('.ul-results').append(`<li> <a href="${parkList[i].url}" target="_blank">${parkList[i].fullName}</a> <br> ${parkList[i].description}</li>`);
-    }*/
 
 function watchForm(){
 console.log('hello world')
@@ -34,6 +36,7 @@ console.log('hello world')
     event.preventDefault()
     const query = $('#dropdown-list').val();
     console.log(query);
+    fetchApi(query);
     console.log('watch form working')
 });
 }
