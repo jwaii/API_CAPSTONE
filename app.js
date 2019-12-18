@@ -3,11 +3,10 @@
 const key ="14618198-0e48f42b11f7addd7d074a05d" // change
 const searchURL ="https://pixabay.com/api/" 
 console.log('api keys working');
-//https://pixabay.com/images/search/food/
-function fetchApi(query){ //change api auth points (fill in the URL points)
+function fetchApi(query){
     
    let url = `${searchURL}?key=${key}&category=food&q=restaurant&q=${query}+food+restaurant`;
-    //`${searchURL}+${key}&category=food&q=restaurant&q` ;
+  
     console.log(url);
     //fetch, pass through URL for param for API
     fetch(url)
