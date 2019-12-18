@@ -6,29 +6,29 @@ console.log('api keys working');
 //https://pixabay.com/images/search/food/
 function fetchApi(query){ //change api auth points (fill in the URL points)
     
-    let url = `${searchURL}?${key}&"p="+encodeURIComponent('chinese food')`;
+   let url = `${searchURL}?key=${key}&category=food&q=restaurant&q=chinese+food`;
     //`${searchURL}+${key}&category=food&q=restaurant&q` ;
     console.log(url);
     //fetch, pass through URL for param for API
-    fetch(url, {mode: 'no-cors'})
-        .then(respose => response.json())
+    fetch(url)
+//, {mode: 'no-cors'}
+        .then(response => response.json())
         .then (responseJson => 
             displayResults(responseJson))
-        .catch(error => alert(`Something went wrong. Please try again`))
-        }
+        .catch(error => alert(`Something went wrong. Please try again`));
+}
       
   
 function displayResults(responseJson){
     console.log('display Results is running');
     console.log(responseJson);
-    const query = responseJson.data //??
-    for  (let i =0; i < query.length; i++){
-        console.log(query[i]);
+
+    const query = responseJson["totalHits"] //??
+    for  (let i =0; i < hits.length(2); i++){
+        console.log(hits[i]);
         console.log('for loop')
     }
-
 };
-
 
 function watchForm(){
 console.log('hello world')
