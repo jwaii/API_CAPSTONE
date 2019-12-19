@@ -28,13 +28,19 @@ function fetchApi(query){
 function displayResults(responseJson){
     console.log('display Results is running');
     console.log(responseJson);
-    const hits = responseJson.hits; //??
+    const hits = responseJson.hits;
      console.log(hits);
      $('.js-results').html(" ");
     for  (let i =0; i < hits.length; i++){
-        $('.js-results').append(`<img src="${hits[i].largeImageURL}" >`);
+       $('.js-results').append(`<input type="image" alt= "submit" class="img" src="${hits[i].largeImageURL}">`);
         console.log('for loop')
     }
+};
+
+//wanting to create an onclick event listener, for when user clicks on of the images. for now just want to console.log('clicked')
+function returnRestaurants(){
+  $('.js-results'.click());
+  console.log('clicked')
 };
 
 function watchForm(){
@@ -51,3 +57,12 @@ console.log('hello world')
 console.log('Hello from over here')
 
 $(watchForm);
+
+// Clicking image returns local restauraunts
+// need to ask for the zip code/ current location
+// map out close by areas 
+// display restaurants
+// 
+// 
+// 
+// 
