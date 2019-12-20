@@ -31,17 +31,23 @@ function displayResults(responseJson){
     const hits = responseJson.hits;
      console.log(hits);
      $('.js-results').html(" ");
-    for  (let i =0; i < hits.length; i++){
+    for  (let i = 0; i < 4; i++){
        $('.js-results').append(`<input type="image" alt= "submit" class="img" src="${hits[i].largeImageURL}">`);
         console.log('for loop')
     }
 };
 
-//wanting to create an onclick event listener, for when user clicks on of the images. for now just want to console.log('clicked')
+// wanting to create an onclick event listener, for when user clicks on of the images. for now just want to console.log('clicked')
 function returnRestaurants(){
-  $('.js-results'.click());
+  $('.js-results').click(console.log('hi'));
   console.log('clicked')
 };
+
+$(".js-results").click(function(){
+    console.log('clicked image')
+})
+
+$(returnRestaurants);
 
 function watchForm(){
 console.log('hello world')
