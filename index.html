@@ -3,11 +3,14 @@
 <head>
     <title class="center"> Food Searcher </title>
     <link rel="stylesheet" href="main.css">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
 </head>
 <body>
     <h1 class="pageTitle"> Are you Hungry?
     </h1>
-    <p class="sub-title">Choose what kind of food to eat!</p>
+    <p class="sub-title" id="potatoSquash"> Choose what kind of food to eat!</p>
+    <p id="intro-blurb">Uninspired about dinner? Suffering from Decision paralysis?
+      Through this app, users will be able to explore different cuisines through images to excited your taste buds! Select from the different cuisines and find a plethera of dishes. If you find something that inspires you, click on the image and find a restaurant near by!</p>
     <form class="form">
       <select name="Food-Names" id="dropdown-list">
         <option value="Chinese"> Chinese</option>
@@ -24,6 +27,9 @@
     </form>
     <main class="js-results">
     </main>
+    <div id="map"></div>
+    <script src="alt.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPSC0sLYxNLyzhRbw98ca6riglSEQ44DQ=places&callback=initMap" async defer></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="app.js"></script>
 </body>

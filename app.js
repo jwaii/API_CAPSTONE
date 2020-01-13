@@ -10,9 +10,6 @@ function fetchApi(query){
     console.log(url);
     //fetch, pass through URL for param for API
     fetch(url)
-//, {mode: 'no-cors'}
-//check if the response is ok 
- //return response as json
 .then(response => { 
   if (response.ok){
      return response.json();
@@ -20,12 +17,11 @@ function fetchApi(query){
      throw new Error(response.statusText); //or get error 
   })
         .then (responseJson => 
-            displayResults(responseJson))
-        .catch(error => alert(`Something went wrong. Please try again`));
+            displayResults(responseJson,query))
+        .catch(error => alert(`Something went wrong. Please try again`)); 
 }
       
-  
-function displayResults(responseJson){
+function displayResults(responseJson,query){
     console.log('display Results is running');
     console.log(responseJson);
     const hits = responseJson.hits;
@@ -35,19 +31,16 @@ function displayResults(responseJson){
        $('.js-results').append(`<input type="image" alt= "submit" class="img" src="${hits[i].largeImageURL}">`);
         console.log('for loop')
     }
+    returnRestaurants(query);
 };
 
 // wanting to create an onclick event listener, for when user clicks on of the images. for now just want to console.log('clicked')
-function returnRestaurants(){
+function returnRestaurants(query){
   $('.js-results').click(console.log('hi'));
-  console.log('clicked')
+  console.log('clicked');
+  getGooglePlaces(query); // alt.js
 };
 
-$(".js-results").click(function(){
-    console.log('clicked image')
-})
-
-$(returnRestaurants);
 
 function watchForm(){
 console.log('hello world')
@@ -60,7 +53,6 @@ console.log('hello world')
 });
 }
 
-console.log('Hello from over here')
 
 $(watchForm);
 
@@ -69,6 +61,5 @@ $(watchForm);
 // map out close by areas 
 // display restaurants
 // 
-// 
-// 
-// 
+
+//CREATE RESTART APP

@@ -1,6 +1,9 @@
-
 body{
+    display: flex;
     background-color: #9B87C7;
+    background-image: url("https://cdn.pixabay.com/photo/2018/01/31/05/43/web-3120321_1280.png");
+    background-repeat: no-repeat;
+    
 }
 
 .pageTitle, .sub-title{
@@ -22,7 +25,44 @@ body{
     padding: 5px;
 }
 
-body {
-    background-image: url("https://cdn.pixabay.com/photo/2018/01/31/05/43/web-3120321_1280.png");
-    
+.form{
+    text-align: center;
+}
+
+
+ /* For mobile phones: */
+ @media only screen and (min-width: 320px) {
+    .pageTitle, .sub-title{
+        color: red;
+    }
+    .img{
+        background: whitesmoke;
+         width: 175px;
+         height: 175px;
+         margin: 2.5%;
+         border: 1px solid #ddd;
+         border-radius: 4px;
+         padding: 5px;
+         }
   }
+
+  @media only screen and (min-width: 600px) {
+    .pageTitle, .sub-title {
+        color: white;
+    }
+    .img{
+        background: whitesmoke;
+         width: 240px;
+         height: 240px;
+         margin: 2.5%;
+         border: 1px solid #ddd;
+         border-radius: 4px;
+         padding: 5px;
+         }
+  }
+
+   @media  only screen and(min-width: 601px) {
+    .pageTitle, .sub-title{
+        color: yellow;
+    } 
+  } 
