@@ -18,7 +18,7 @@ function fetchApi(query){
   })
         .then (responseJson => 
             displayResults(responseJson,query))
-        .catch(error => alert(`Something went wrong. Please try again`)); 
+        .catch(error => alert(`Something went wrong. Please try again app.js`)); 
 }
       
 function displayResults(responseJson,query){
@@ -28,17 +28,21 @@ function displayResults(responseJson,query){
      console.log(hits);
      $('.js-results').html(" ");
     for  (let i = 0; i < 4; i++){
-       $('.js-results').append(`<input type="image" alt= "submit" class="img" src="${hits[i].largeImageURL}">`);
+       $('.js-results').append(`<a href= "#" > <img alt= "submit" class="img" src="${hits[i].largeImageURL}"> </a>`);
         console.log('for loop')
     }
-    returnRestaurants(query);
+    // imgClick(query);
+    // //returnRestaurants(query);
 };
 
 // wanting to create an onclick event listener, for when user clicks on of the images. for now just want to console.log('clicked')
 function returnRestaurants(query){
-  $('.js-results').click(console.log('hi'));
-  console.log('clicked');
-  getGooglePlaces(query); // alt.js
+    //not sure if things are working (Below)
+//   $('.js-results').click(console.log('hi'));
+//   console.log('clicked');
+    // (ABOVE)
+
+  getAPI(query); // alt.js
 };
 
 
@@ -49,17 +53,9 @@ console.log('hello world')
     const query = $('#dropdown-list').val();
     console.log(query);
     fetchApi(query);
-    console.log('watch form working')
+    console.log('watch form working');
 });
 }
 
 
 $(watchForm);
-
-// Clicking image returns local restauraunts
-// need to ask for the zip code/ current location
-// map out close by areas 
-// display restaurants
-// 
-
-//CREATE RESTART APP

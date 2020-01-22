@@ -1,33 +1,63 @@
 
-// ALREADY IN THE HTML FILE (ADD NEW API KEY) <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
-// API KEY = "AIzaSyCPSC0sLYxNLyzhRbw98ca6riglSEQ44DQ"
-
-
-//url to build https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=37.804363, -122.271111&radius=500&types=food&name=italian&key=AIzaSyDi1ALnuKh-GLEW1YVRuXP3zpYqy0h6lMY
-
 // below is GOOD
-function getGooglePlaces(query){
+function getAPI(query){
     console.log('get google places ran')
-    const url =`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=37.804363, -122.271111&radius=500&types=food&name=${query}&key=AIzaSyDi1ALnuKh-GLEW1YVRuXP3zpYqy0h6lMY`
-    console.log(url);
-    fetch(url)
-.then(response => { 
-  if (response.ok){
-     return response.json();
-     } 
-     throw new Error(response.statusText); //or get error 
-  })
-        .then (responseJson => 
-            displayGoogleResults(responseJson))
-        .catch(error => alert(`Something went wrong. Please try again`)); 
-}
+    const url = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=37.804363,%20-122.271111&radius=500&types=food&name=${query}&input=restaurant&inputtype=textquery&key=AIzaSyDi1ALnuKh-GLEW1YVRuXP3zpYqy0h6lMY`;    console.log(url);
+    //console.log("second API key is working")
+    // const proxyurl = "https://cors-anywhere.herokuapp.com/";
+    fetch(url) // https://cors-anywhere.herokuapp.com/https://example.com
+     .then(response => {
+         console.log('hi');
+            if(response.ok) {
+                return response.jason();
+            }
+            throw new Error(response.statusText);
+     })
+     .then(responseJson => displayGoogleResults(responseJson))
+     .catch(err => {
+         $(".js-search-results").text(`Something went wrong alt.js: ${err.message}`);
+     });
+    };
+
 
 
 function displayGoogleResults(responseJson){
 console.log(responseJson);
+$('.result-list').empty();
+let results = responseJson.results;
+if (results.length > 0) {
+    for (let i=0; i < results.length; i++){
+        $('.result-list').append(`<li> ${results[i].name}</li>
+        `);
+    }
+}
+else{
+    $('result-list').append('<li> Sorry, no results match your search </li>')
+}
+$('.js-search-results').removeClass('hidden');
 }
 
+function watchForm() {
+    $('.js-search-form').submit(event => {
+        event.preventDefault();
+        let queryTarget = $(event.currentTarget).find('.js-query');
+        let query = queryTarget.val();
+        //clear out the input
+        queryTarget.val("");
+        getAPI(query);
+    })
+}
 
+$(watchForm);
+
+
+// function imgClick(query){
+//     console.log('img click ran')
+// // click event in own function isolation (easier to invoke bc only read when called)\
+// // action based so easier to see when ther code is being formed
+// $('.js-results').closest("a").click(getGooglePlaces(query));
+   
+// }
 
 //alter display results to have display the results working
 
