@@ -1,6 +1,6 @@
 'use strict'
 
-const key ="14618198-0e48f42b11f7addd7d074a05d" // change
+const key ="{API_KEY_HERE}" // change
 const searchURL ="https://pixabay.com/api/" 
 console.log('api keys working');
 function fetchApi(query){

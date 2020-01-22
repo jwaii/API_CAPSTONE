@@ -2,7 +2,7 @@
 // below is GOOD
 function getAPI(query){
     console.log('get google places ran')
-    const url = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=37.804363,%20-122.271111&radius=500&types=food&name=${query}&input=restaurant&inputtype=textquery&key=AIzaSyDi1ALnuKh-GLEW1YVRuXP3zpYqy0h6lMY`;    console.log(url);
+    const url = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=37.804363,%20-122.271111&radius=500&types=food&name=${query}&input=restaurant&inputtype=textquery&key={API_KEY_HERE}`;    console.log(url);
     //console.log("second API key is working")
     // const proxyurl = "https://cors-anywhere.herokuapp.com/";
     fetch(url) // https://cors-anywhere.herokuapp.com/https://example.com
